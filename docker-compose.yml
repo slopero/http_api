@@ -1,16 +1,9 @@
-version: '3'
+version: '3.8'
 
 services:
   myapp:
     build: .
     image: test_http
-
-  nginx:
-    image: nginx:latest
     ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - myapp 
+      - "8080:8080"
       
