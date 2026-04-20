@@ -24,9 +24,8 @@ jobs:
 
       - name: Deploy to server
         run: |
-          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
-            cd ${{secrets.SERVER_PATH }}
-            git pull origin main
-            docker compose up --build -d
-          EOF
+          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
+            "cd ${{ secrets.SERVER_PATH }} && \
+            git pull origin main && \
+            docker compose up --build -d"
 
